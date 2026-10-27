@@ -1,0 +1,9 @@
+# Post-ship graph: run when the team says "we're done and shipped" (demo tag exists).
+- {id: retro, owner: agent, skill: /ship-retro, needs: [], out: research/retro.md, gate: "every line sourced; traction counts with method", timebox_min: 30}
+- {id: synopsis, owner: researcher, skill: /synopsis, needs: [retro], out: research/synopsis.md, gate: "outsider repeats the one sentence; invest + refer close", timebox_min: 40}
+- {id: design, owner: agent, skill: /design-system, needs: [retro, synopsis], out: research/design.md, gate: "market look cited; brand kit with hex + fonts; ad drafts for top 3 hooks", timebox_min: 40}
+- {id: deck, owner: agent, skill: /deck, needs: [synopsis, design], out: showcase/deck.pdf, gate: "plays offline; notes with timings; under time limit", timebox_min: 45}
+- {id: dr-copy, owner: agent, skill: /direct-response, needs: [design], out: showcase/ads.md, gate: "3 hooks x 3 variants; every claim traced; policy check", timebox_min: 30}
+- {id: video, owner: agent, skill: /video-prompt, needs: [dr-copy, design], out: showcase/video.md, gate: "shot list + prompts + VO + edit plan; product shot is real", timebox_min: 25}
+- {id: honesty-review, owner: agent, skill: manual, needs: [deck, dr-copy, video], out: showcase/review.md, gate: "reviewer (different model) checks every claim against research/; zero unsourced claims", timebox_min: 20}
+- {id: approve, owner: approver, skill: manual, needs: [honesty-review], out: research/approvals.md, gate: "approver approves deck + ads + video before any external use", timebox_min: 10, human_gate: true}

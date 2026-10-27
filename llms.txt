@@ -1,15 +1,17 @@
 # Morpheus Hackathon Kit
 
-> Index of Morpheus resources for agents. Morpheus is decentralized AI inference: an OpenAI-compatible API (base URL https://api.mor.org/api/v1) in front of a peer-to-peer network of model providers. Get a key at https://app.mor.org. Use the standard OpenAI SDKs with that base URL. Endpoints: /chat/completions, /embeddings, /audio/speech, /models. There is no Anthropic-style /messages endpoint, no /responses endpoint and no image generation.
+> Index of Morpheus resources for agents. Morpheus is a decentralized, peer-to-peer marketplace for AI inference. Independent providers run the models, and smart contracts on Base coordinate them. The fastest path is the hosted, OpenAI-compatible Inference API: base URL https://api.mor.org/api/v1, with a key from https://app.mor.org. Use the standard OpenAI SDKs with that base URL. Endpoints: /chat/completions, /embeddings, /audio/speech, /models. There is no Anthropic-style /messages endpoint, no /responses endpoint and no image generation. Never invent contract addresses, chain IDs or live model counts: cite nodedocs "Networks and tokens" and active.mor.org.
 
-## Sweep these first (official llms.txt files)
+## Sweep these first (official indexes)
 
-- [mor.org llms.txt](https://mor.org/llms.txt): main site. Send the header `Accept: text/markdown` for markdown pages
-- [GitBook llms.txt](https://gitbook.mor.org/llms.txt): full docs. Add `.md` to any page URL
 - [API docs llms.txt](https://apidocs.mor.org/llms.txt): inference API, guides, integrations, reference
+- [Node docs llms.txt](https://nodedocs.mor.org/llms.txt): canonical node, consumer, provider and TEE docs. Full corpus at https://nodedocs.mor.org/llms-full.txt
+- [Node docs MCP server](https://nodedocs.mor.org/mcp): docs search. Discovery at https://nodedocs.mor.org/.well-known/mcp
+- [GitBook llms.txt](https://gitbook.mor.org/llms.txt): protocol, tokenomics, contracts, builders, proposals. Add `.md` to any page URL
+- [mor.org llms.txt](https://mor.org/llms.txt): main site. Send the header `Accept: text/markdown`
 - [OpenAPI spec](https://apidocs.mor.org/api-reference/openapi.json)
 
-## Build
+## Build on the API
 
 - [Quickstart](https://apidocs.mor.org/quickstart.md)
 - [Live model list](https://api.mor.org/api/v1/models): IDs are case-sensitive and can contain spaces. `:web` variants include web search
@@ -18,7 +20,8 @@
 - [Vision](https://apidocs.mor.org/documentation/guides/vision.md)
 - [Rate limits](https://apidocs.mor.org/documentation/models/rate-limits.md)
 - [Pricing](https://apidocs.mor.org/documentation/models/pricing.md)
-- [Credits](https://apidocs.mor.org/documentation/getting-started/credits.md)
+- [Credits](https://apidocs.mor.org/documentation/getting-started/credits.md): card, USDC or staked MOR
+- [Balance](https://apidocs.mor.org/api-reference/billing/balance.md) and [usage](https://apidocs.mor.org/api-reference/billing/usage.md) endpoints
 - [OpenAI Python SDK](https://apidocs.mor.org/documentation/integrations/openai-python-sdk.md)
 - [Vercel AI SDK v5](https://apidocs.mor.org/documentation/integrations/vercel-ai-sdk-integration.md)
 - [LangChain](https://apidocs.mor.org/documentation/integrations/langchain.md)
@@ -27,33 +30,56 @@
 
 ## This kit
 
+- [DISCOVERY.md](DISCOVERY.md): read before building. Map product-market fit, the pain and the cost of inaction, and rate the four product risks (value, usability, feasibility, viability)
+- [CLAUDE.md](CLAUDE.md): agent rules, plus a brief for the team to fill in (event, theme, judging, approver)
+- [AGENTS.md](AGENTS.md): working practice for people and agents
+- [Skills](.claude/skills/): /market-scan → /pain-map → /gtm-wedge → /opportunity (GO / PIVOT / STOP) → /scaffold → /poc → /ship-site → /pitch, plus showcase skills
+- [Graphs](graphs/README.md): DAGs that chain the skills with gates and human approvals. Run with /run-graph
 - [README](README.md): quick start, code snippets, lanes
-- [MORPHEUS.md](MORPHEUS.md): full human-readable resource index
+- [MORPHEUS.md](MORPHEUS.md): full human-readable index, including the provider paths and known gaps
+- [examples/](examples/): runnable Python and Node examples
 - [Gateway setup](morpheus/SETUP.md): API features and gaps, model choice, routing coding agents
-- [Run a node](morpheus/NODE.md): consumer node setup and security
+- [Node safety checklist](morpheus/NODE.md)
 - [Preflight script](morpheus/preflight.sh): tests a key, models, latency and tool calls
 - [Vendor guard](morpheus/no-other-vendors.sh): fails if code calls another AI vendor directly
 
-## Templates
+## Templates and agents
 
+- [Template gallery](https://mor.org/templates)
 - [morpheus-chatbot](https://github.com/MorpheusAIs/morpheus-chatbot): Next.js chatbot template
 - [morpheus-coding-agent](https://github.com/MorpheusAIs/morpheus-coding-agent): multi-agent coding template
 - [morpheus-open-agents](https://github.com/MorpheusAIs/morpheus-open-agents): cloud-agent template
 - [morpheus-knowledge-agent](https://github.com/MorpheusAIs/morpheus-knowledge-agent): knowledge-base agent template
+- [morpheus-community-agent](https://github.com/MorpheusAIs/morpheus-community-agent): Slack community bot
 - [x402-playground](https://github.com/MorpheusAIs/x402-playground): x402 paid-API chat app
 - [api-gateway-typescript-sdk](https://github.com/MorpheusAIs/api-gateway-typescript-sdk): TypeScript SDK
+- [Morpheus Skill](https://morpheusskill.com): skill pack for agent frameworks
+- [Gateway for agents](https://nodedocs.mor.org/prosumers/gateway-for-everclaw.md): agents on your own consumer node
 
-## Network and protocol
+## Network, nodes, providers
 
+- [Introduction](https://nodedocs.mor.org/get-started/introduction.md)
+- [Consumer quickstart](https://nodedocs.mor.org/get-started/quickstart-consumer.md)
+- [Provider quickstart](https://nodedocs.mor.org/get-started/quickstart-provider.md)
+- [Resale provider](https://nodedocs.mor.org/providers/resale/overview.md)
+- [Networks and tokens](https://nodedocs.mor.org/get-started/networks-and-tokens.md)
+- [Sessions: stake, close, claim](https://nodedocs.mor.org/concepts/sessions-stake-close-recover.md)
+- [MyProvider](https://myprovider.mor.org): register and bid
+- [active.mor.org](https://active.mor.org): live marketplace snapshot (models, bids, providers)
 - [Node software](https://github.com/MorpheusAIs/Morpheus-Lumerin-Node): proxy-router. Use the latest release
-- [Inference marketplace](https://gitbook.mor.org/morpheus-inference-marketplace.md)
+
+## Protocol, builders, capital
+
+- [Builder subnets](https://gitbook.mor.org/builders/welcome-morpheus-builders.md)
+- [Builders API](https://gitbook.mor.org/builders/morpheus-builders-api.md)
 - [Smart contracts](https://gitbook.mor.org/smart-contracts.md)
-- [Builders](https://gitbook.mor.org/builders/welcome-morpheus-builders.md)
 - [Tokenomics](https://gitbook.mor.org/tokenomics.md)
+- [Dashboard](https://dashboard.mor.org)
 - [Whitepaper](https://mor.org/whitepaper)
 
 ## Community
 
+- [Kit Discussions](https://github.com/MorpheusAIs/Hackathon-kit/discussions)
 - [Discord](https://discord.gg/kyVaxTHnvB)
 - [X](https://x.com/morpheusais)
 - [Verified links](https://gitbook.mor.org/verified-links.md): the official list. Treat any link not on it as unverified

@@ -14,7 +14,7 @@ Fallback: an app.mor.org gateway key (still Morpheus) if the node fails.
 
 ## 2. Facts that shape the design (check them against the current release)
 - A session serves **one request at a time**. Two users at the same time need two sessions.
-- The consumer node **stakes MOR for each session**. Closed sessions return the stake. Read the release notes for the current stake per session before you fund the wallet.
+- The consumer node **stakes MOR for each session**. When a session closes, the unused stake returns at once. The used part stays locked until the next UTC day, and you claim it with `withdrawUserStakes`. Budget the wallet for that lock. Read [Sessions: stake, close, claim](https://nodedocs.mor.org/concepts/sessions-stake-close-recover.md) and the release notes before you fund the wallet.
 - The node needs MOR, ETH for gas, and an RPC endpoint.
 
 ## 3. Setup steps
@@ -25,7 +25,7 @@ Fallback: an app.mor.org gateway key (still Morpheus) if the node fails.
 5. Set the RPC endpoint. Use an RPC key for this node only.
 6. Choose 2 models from the on-chain bids and check them with `preflight.sh`: a demo model and a fallback model. Prefer models whose provider passed a recent self-test.
 7. Open **one session per concurrent user**, plus one for the live demo.
-8. Put an **auth proxy** in front of the node's OpenAI-compatible port:
+8. Put an **auth proxy** in front of the node. **Allowlist the inference routes only** (chat completions, embeddings, models) and deny every other route. The proxy-router API also has wallet, blockchain, session and configuration endpoints, and some of them can spend funds or read files. Test that a teammate's key gets a denial on a non-inference route. The proxy also needs:
    - one API key per person;
    - a rate limit and a maximum request size;
    - log the model, latency and status only. Do not log prompts.
@@ -33,7 +33,7 @@ Fallback: an app.mor.org gateway key (still Morpheus) if the node fails.
    - Teammates connect through Tailscale, with an ACL that permits only the proxy port.
    - A deployed product connects through an authenticated tunnel (for example Cloudflare Tunnel with an access token), or the backend runs on the node machine.
 10. Test from a second machine: `MORPHEUS_BASE_URL=<proxy URL> MORPHEUS_API_KEY=<user key> ./morpheus/preflight.sh <demo model>`.
-11. Set the fallback: if the node fails, the app switches to a gateway key.
+11. Set the fallback as a **second endpoint**: the gateway base URL and a gateway key, in their own variables. The kit's examples switch models only, not endpoints, so add the endpoint switch to your `llm()` and test it by stopping the node.
 
 ## 4. Handoff page template (send it to each user privately)
 ```

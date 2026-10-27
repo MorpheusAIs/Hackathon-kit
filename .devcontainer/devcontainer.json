@@ -1,0 +1,8 @@
+{
+  "name": "Morpheus hackathon kit",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "postCreateCommand": "pip install -r examples/python/requirements.txt && npm install --prefix examples/node",
+  "containerEnv": {
+    "MORPHEUS_BASE_URL": "https://api.mor.org/api/v1"
+  }
+}

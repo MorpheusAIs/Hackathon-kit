@@ -1,0 +1,4 @@
+# Run after graphs/5-showcase.yaml (synopsis + deck exist).
+- {id: script, owner: agent, skill: /pitch, needs: [], out: research/pitch.md, gate: "timed script + 10 hard Q&A", timebox_min: 45}
+- {id: drill, owner: researcher, skill: manual, needs: [script], out: research/pitch.md, gate: "each team member answers all 10 cold", timebox_min: 30}
+- {id: rehearse, owner: builder, skill: manual, needs: [drill], out: "-", gate: "3 timed run-throughs under the limit, demo live once + backup once", timebox_min: 45}

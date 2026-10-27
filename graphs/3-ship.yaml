@@ -1,0 +1,6 @@
+# Runs alongside 2-build once 1-discover/gtm is done.
+# Start only after research/opportunity.md says GO (graphs/1-discover.yaml).
+- {id: site, owner: agent, skill: /ship-site, needs: [], out: site/, gate: "live URL; form submits on phone viewport; analytics recording", timebox_min: 60}
+- {id: leads, owner: agent, skill: /outreach, needs: [], out: research/outreach.md, gate: "ranked leads with source URLs + drafts", timebox_min: 60}
+- {id: send, owner: researcher, skill: manual, needs: [leads, site], out: research/outreach.md, gate: "the approver-approved list + message; sent by a human", timebox_min: 30, human_gate: true}
+- {id: proof, owner: researcher, skill: manual, needs: [send], out: research/funnel.md, gate: "count of signups / clicks / replies, with timestamps", timebox_min: 15}

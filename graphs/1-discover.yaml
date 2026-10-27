@@ -1,0 +1,8 @@
+- {id: frame, owner: researcher, skill: manual, needs: [], out: research/frame.md, gate: "3 candidate spaces, each one line: <buyer> trying to <job>, theme link", timebox_min: 15}
+- {id: scan-a, owner: agent, skill: /market-scan, needs: [frame], out: research/scan-a.md, gate: "verdict, with >=8 sourced pain quotes or INSUFFICIENT naming the failed sources", timebox_min: 45}
+- {id: scan-b, owner: agent, skill: /market-scan, needs: [frame], out: research/scan-b.md, gate: "verdict, with >=8 sourced pain quotes or INSUFFICIENT naming the failed sources", timebox_min: 45}
+- {id: scan-c, owner: agent, skill: /market-scan, needs: [frame], out: research/scan-c.md, gate: "verdict, with >=8 sourced pain quotes or INSUFFICIENT naming the failed sources", timebox_min: 45}
+- {id: pain-map, owner: agent, skill: /pain-map, needs: [scan-a, scan-b, scan-c], out: research/pain-map.md, gate: "scored table (six axes) + pick + riskiest assumption", timebox_min: 30}
+- {id: pick, owner: builder, skill: manual, needs: [pain-map], out: research/pain-map.md, gate: "every team member signs the pick", timebox_min: 10, human_gate: true}
+- {id: gtm, owner: agent, skill: /gtm-wedge, needs: [pick], out: research/gtm.md, gate: "10 headings, ICP is one named buyer, price justified", timebox_min: 30}
+- {id: opportunity, owner: agent, skill: /opportunity, needs: [gtm], out: research/opportunity.md, gate: "all four risks rated with evidence; GO / PIVOT / STOP", timebox_min: 20}
