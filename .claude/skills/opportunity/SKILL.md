@@ -12,8 +12,8 @@ This follows the product-discovery approach in Marty Cagan's *Inspired*. Read `D
 2. **For whom:** the first buyer (from the ICP in `research/gtm.md`).
 3. **Cost of inaction:** what the buyer loses each month if nothing changes. State the unit (dollars, hours, risk, harm).
 4. **Value:** what the buyer gains. Is it economic or not (time, safety, access, trust)? How would you measure it in a week?
-5. **Size:** roughly how many buyers have this problem. An order of magnitude is enough.
-6. **Alternatives:** what they use today, including "nothing", and why it falls short.
+5. **Size:** TAM, SAM and SOM from `research/scan-*.md`, with the bottom-up math (buyers × annual spend on the workaround). Label them as estimates.
+6. **Competition:** direct competitors, indirect ones and substitutes (including "nothing"), from the scan's competitor matrix, and why each falls short.
 7. **Why us, why now:** what lets this team build it now (for example, inference that was too expensive or too closed before).
 8. **Go to market:** how the first 10 buyers find it.
 9. **Success metric:** the one number that would show it works.

@@ -22,6 +22,7 @@ Expect many ideas to fail one of these four. Finding that out on build day morni
 | Map | Answer in one line, with a source | Kit skill |
 |---|---|---|
 | **Pain** | Who hurts, in their own words, how often, how badly | `/market-scan`, `/pain-map` |
+| **Market** | TAM / SAM / SOM (bottom-up), the competitor matrix, the community discussing the pain, why now | `/market-scan` |
 | **Cost of inaction** | What the pain costs each month if nothing changes: money, hours, risk, or harm | `/pain-map`, `/gtm-wedge` |
 | **Product-market fit** | The exact first buyer, the one job you do better than today's workaround, and the evidence they want it | `/gtm-wedge` |
 | **Value** | What the buyer gains, economic or otherwise, and how you would measure it | `/opportunity` |
