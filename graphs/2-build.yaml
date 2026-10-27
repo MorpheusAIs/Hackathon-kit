@@ -4,3 +4,4 @@
 - {id: poc, owner: agent, skill: /poc, needs: [scaffold], out: research/poc-runs/, gate: "useful output on 2 of 3 real inputs", timebox_min: 180}
 - {id: mvp, owner: agent, skill: /poc, needs: [poc], out: app/, gate: "stranger can use it unaided; fallback model works; run log written", timebox_min: 150}
 - {id: freeze, owner: builder, skill: manual, needs: [mvp], out: "git tag demo", gate: "feature freeze at the time set in CLAUDE.md; backup recording saved", timebox_min: 10, human_gate: true}
+- {id: release, owner: builder, skill: manual, needs: [freeze], out: research/release.md, gate: "approver says yes to the exact build and domain BEFORE deploy; production URL + deploy ID + rollback steps recorded", timebox_min: 20, human_gate: true}

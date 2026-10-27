@@ -1,7 +1,7 @@
 # Before build day. Nothing product-specific is created here; this is tooling and accounts only.
 - {id: accounts, owner: builder, skill: manual, needs: [], out: research/tooling-checklist.md, gate: "every account the team needs exists and is checked", timebox_min: 60}
 - {id: keys, owner: approver, skill: manual, needs: [], out: "a password manager", gate: "one funded sk- key per person", timebox_min: 20, human_gate: true}
-- {id: morpheus, owner: builder, skill: manual, needs: [keys], out: research/preflight.txt, gate: "morpheus/preflight.sh exits 0 for the demo and fallback models; tools=yes on the demo model", timebox_min: 30}
+- {id: morpheus, owner: builder, skill: manual, needs: [keys], out: research/preflight.txt, gate: "morpheus/preflight.sh exits 0 for the demo and fallback models (and EMBED_MODEL if you need embeddings); tools=yes on the demo model", timebox_min: 30}
 - {id: skills-install, owner: researcher, skill: manual, needs: [], out: "/skills list", gate: "all kit skills appear in Claude Code on every team laptop", timebox_min: 15}
 - {id: dry-fire, owner: agent, skill: /run-graph, needs: [morpheus, skills-install], out: "throwaway/", gate: "full graphs 1-3 run on a PRACTICE problem; record minutes per node; then delete throwaway/", timebox_min: 180}
 - {id: tune, owner: builder, skill: manual, needs: [dry-fire], out: graphs/*.yaml, gate: "timeboxes updated from dry-fire actuals; every failed gate has a fix in its skill", timebox_min: 45}

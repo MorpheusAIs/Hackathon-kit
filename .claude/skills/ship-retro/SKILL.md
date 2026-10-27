@@ -6,7 +6,7 @@ description: Start of the post-ship graph. When the team says "we're done and sh
 # Ship retro: one fact base
 
 ## Trigger
-The `demo` tag exists and the product is live. Do not start before that.
+The `demo` tag exists and the product is live (`research/release.md` holds the production URL). Do not start before that.
 
 ## Collect (in parallel where possible)
 | Source | What to take |

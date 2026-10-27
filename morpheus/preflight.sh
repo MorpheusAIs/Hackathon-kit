@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Morpheus preflight: key works, chosen models answer, latency, tool calling.
+# Optional: EMBED_MODEL="Qwen3 Embedding 8B" also tests /embeddings.
 # Usage: MORPHEUS_API_KEY=sk-... ./preflight.sh "glm-5.3-flash" "Claude Sonnet 5.5"
 set -euo pipefail
 BASE="${MORPHEUS_BASE_URL:-https://api.mor.org/api/v1}"
@@ -22,5 +23,12 @@ except Exception: print("ERROR")' || echo ERROR)
   [ "$txt" = "ERROR" ] && fail=1
   [ "$tool" = "yes" ] || echo "  note: $m has no working tool calls (OK for plain-text JSON use; not OK as a tool-calling demo model)"
 done
+if [ -n "${EMBED_MODEL:-}" ]; then
+  emb=$(curl -s -m 60 "$BASE/embeddings" -K <(printf 'header = "Authorization: Bearer %s"\n' "$MORPHEUS_API_KEY") -H 'Content-Type: application/json' -d "$(python3 -c 'import json,sys;print(json.dumps({"model":sys.argv[1],"input":"hello"}))' "$EMBED_MODEL")" | python3 -c 'import json,sys
+try: print(len(json.load(sys.stdin)["data"][0]["embedding"]))
+except Exception: print("ERROR")')
+  printf '%-28s embedding dims=%s\n' "$EMBED_MODEL" "$emb"
+  [ "$emb" = "ERROR" ] && fail=1
+fi
 echo "Saved evidence: rerun with | tee research/preflight-$(date +%F).txt"
 exit $fail
