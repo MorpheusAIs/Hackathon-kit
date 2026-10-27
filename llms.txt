@@ -1,0 +1,60 @@
+# Morpheus Hackathon Kit
+
+> Index of Morpheus resources for agents. Morpheus is decentralized AI inference: an OpenAI-compatible API (base URL https://api.mor.org/api/v1) in front of a peer-to-peer network of model providers. Get a key at https://app.mor.org. Use the standard OpenAI SDKs with that base URL. Endpoints: /chat/completions, /embeddings, /audio/speech, /models. There is no Anthropic-style /messages endpoint, no /responses endpoint and no image generation.
+
+## Sweep these first (official llms.txt files)
+
+- [mor.org llms.txt](https://mor.org/llms.txt): main site. Send the header `Accept: text/markdown` for markdown pages
+- [GitBook llms.txt](https://gitbook.mor.org/llms.txt): full docs. Add `.md` to any page URL
+- [API docs llms.txt](https://apidocs.mor.org/llms.txt): inference API, guides, integrations, reference
+- [OpenAPI spec](https://apidocs.mor.org/api-reference/openapi.json)
+
+## Build
+
+- [Quickstart](https://apidocs.mor.org/quickstart.md)
+- [Live model list](https://api.mor.org/api/v1/models): IDs are case-sensitive and can contain spaces. `:web` variants include web search
+- [Interactive API docs](https://api.mor.org/docs)
+- [Tool calling](https://apidocs.mor.org/documentation/guides/tool-calling.md)
+- [Vision](https://apidocs.mor.org/documentation/guides/vision.md)
+- [Rate limits](https://apidocs.mor.org/documentation/models/rate-limits.md)
+- [Pricing](https://apidocs.mor.org/documentation/models/pricing.md)
+- [Credits](https://apidocs.mor.org/documentation/getting-started/credits.md)
+- [OpenAI Python SDK](https://apidocs.mor.org/documentation/integrations/openai-python-sdk.md)
+- [Vercel AI SDK v5](https://apidocs.mor.org/documentation/integrations/vercel-ai-sdk-integration.md)
+- [LangChain](https://apidocs.mor.org/documentation/integrations/langchain.md)
+- [OpenCode](https://apidocs.mor.org/documentation/integrations/opencode.md)
+- [Cursor](https://apidocs.mor.org/documentation/integrations/cursor.md)
+
+## This kit
+
+- [README](README.md): quick start, code snippets, lanes
+- [MORPHEUS.md](MORPHEUS.md): full human-readable resource index
+- [Gateway setup](morpheus/SETUP.md): API features and gaps, model choice, routing coding agents
+- [Run a node](morpheus/NODE.md): consumer node setup and security
+- [Preflight script](morpheus/preflight.sh): tests a key, models, latency and tool calls
+- [Vendor guard](morpheus/no-other-vendors.sh): fails if code calls another AI vendor directly
+
+## Templates
+
+- [morpheus-chatbot](https://github.com/MorpheusAIs/morpheus-chatbot): Next.js chatbot template
+- [morpheus-coding-agent](https://github.com/MorpheusAIs/morpheus-coding-agent): multi-agent coding template
+- [morpheus-open-agents](https://github.com/MorpheusAIs/morpheus-open-agents): cloud-agent template
+- [morpheus-knowledge-agent](https://github.com/MorpheusAIs/morpheus-knowledge-agent): knowledge-base agent template
+- [x402-playground](https://github.com/MorpheusAIs/x402-playground): x402 paid-API chat app
+- [api-gateway-typescript-sdk](https://github.com/MorpheusAIs/api-gateway-typescript-sdk): TypeScript SDK
+
+## Network and protocol
+
+- [Node software](https://github.com/MorpheusAIs/Morpheus-Lumerin-Node): proxy-router. Use the latest release
+- [Inference marketplace](https://gitbook.mor.org/morpheus-inference-marketplace.md)
+- [Smart contracts](https://gitbook.mor.org/smart-contracts.md)
+- [Builders](https://gitbook.mor.org/builders/welcome-morpheus-builders.md)
+- [Tokenomics](https://gitbook.mor.org/tokenomics.md)
+- [Whitepaper](https://mor.org/whitepaper)
+
+## Community
+
+- [Discord](https://discord.gg/kyVaxTHnvB)
+- [X](https://x.com/morpheusais)
+- [Verified links](https://gitbook.mor.org/verified-links.md): the official list. Treat any link not on it as unverified
+- [Bug bounty](https://mor.org/bug-bounty)
