@@ -4,6 +4,26 @@ An open-source (MIT) kit for building a hackathon product that is worth building
 
 **Agents:** start at [`llms.txt`](llms.txt). **Humans:** start at [`MORPHEUS.md`](MORPHEUS.md) for every official link.
 
+## Why build on Morpheus
+
+| What you get | Why it matters |
+|---|---|
+| One key, one OpenAI-compatible base URL, 250+ models from many model families | Swap models with a one-line change. You are not tied to one AI company's API |
+| Independent providers compete on an open marketplace | Inference is supplied by many operators, not one host. Anyone can become a provider |
+| Pay with card, USDC, or staked MOR | Inference can be funded by stake instead of a card ([stakemor.com](https://stakemor.com)) |
+| A TEE provider path with attestation | Build where confidential inference matters; check which providers attest before you claim it ([TEE overview](https://nodedocs.mor.org/concepts/tee-overview.md)) |
+| Open-source node software | Run your own consumer node and call the network directly ([`morpheus/NODE.md`](morpheus/NODE.md)) |
+| Builder subnets | Keep building after the event and attract MOR stake toward your project |
+
+## Who it's for
+
+| You are | Start here |
+|---|---|
+| **Building an app or product** | The Inference API: quick start below |
+| **Building an agent** | [Morpheus Skill](https://morpheusskill.com), or point your agent at your own node ([agents](MORPHEUS.md#agents)) |
+| **Running models or spare API capacity** | [Become a provider](MORPHEUS.md#become-a-provider-supply-side) |
+| **Holding or staking MOR** | [Builders and capital](MORPHEUS.md#builders-and-capital-after-the-hackathon) |
+
 ## Start with the problem, not the code
 
 A product is incomplete until you have mapped **product-market fit**, the **pain**, and the **cost of not solving it**. Approach the build as delivering value, economic or otherwise, in a form that can last. Before you write product code, answer the four product risks from Marty Cagan's product-discovery approach:

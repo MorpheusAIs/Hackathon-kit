@@ -2,6 +2,8 @@
 
 > Index of Morpheus resources for agents. Morpheus is a decentralized, peer-to-peer marketplace for AI inference. Independent providers run the models, and smart contracts on Base coordinate them. The fastest path is the hosted, OpenAI-compatible Inference API: base URL https://api.mor.org/api/v1, with a key from https://app.mor.org. Use the standard OpenAI SDKs with that base URL. Endpoints: /chat/completions, /embeddings, /audio/speech, /models. There is no Anthropic-style /messages endpoint, no /responses endpoint and no image generation. Never invent contract addresses, chain IDs or live model counts: cite nodedocs "Networks and tokens" and active.mor.org.
 
+> Why builders use it: one key for 250+ models across many model families (no single-vendor lock-in); supply from independent, competing providers; pay by card, USDC or staked MOR; a TEE provider path with attestation (check which providers attest before claiming confidentiality); open-source node software; builder subnets for after the event. Audiences: app builders (Inference API), agent builders (Morpheus Skill, own node), suppliers (provider paths), MOR holders (staking, builder subnets).
+
 ## Sweep these first (official indexes)
 
 - [API docs llms.txt](https://apidocs.mor.org/llms.txt): inference API, guides, integrations, reference
