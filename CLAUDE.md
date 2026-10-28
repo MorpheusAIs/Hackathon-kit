@@ -1,6 +1,10 @@
 # Hackathon project: operating rules
 
-Read `AGENTS.md` first: agent, repo, research, marketing, outreach and safety practice. The rules below are specific to this event.
+Read `AGENTS.md` first: it is the canonical rule set for any agent. Claude Code loads it through the import below.
+
+@AGENTS.md
+
+The rules below are specific to this event.
 
 ## Rules
 1. Read `DISCOVERY.md` before building: no product is complete without mapping product-market fit, the pain, and the cost of not solving it.

@@ -23,6 +23,11 @@ Score 1–10 on the dimensions your product improves (response time, booking or 
 ## Output: `research/outreach.md`
 A ranked table (lead, score, gap, audit link, draft message, channel), with the 9 best at the top.
 
+## Done when
+- Every lead has a source URL.
+- The table has the 9 best leads at the top, each with an audit and a draft message.
+- No message is sent without the approval line (exact message and recipient list approved).
+
 ## Hard rules
 - **Never contact anyone without explicit approval** of the exact message and recipient list, from the approver named in CLAUDE.md. The agent drafts; a human sends.
 - Email (US CAN-SPAM): real sender name, real reply address, a valid postal address, a clear note that the message is a business pitch, and an opt-out that you honor within 10 business days. Keep a do-not-contact list.

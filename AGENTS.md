@@ -10,6 +10,7 @@ This file is for new members and for all AI agents (Claude Code and others). It 
 5. [Outreach](#5-outreach)
 6. [Safety and secrets](#6-safety-and-secrets)
 7. [When something fails](#7-when-something-fails)
+8. [Skills and tools (any agent, any CLI)](#8-skills-and-tools-any-agent-any-cli)
 
 Roles: **builder** (tech lead), **researcher**, **agent** (an AI doing a graph node), **approver** (the team member who signs off on anything outward, paid or production; named in `CLAUDE.md`).
 
@@ -72,3 +73,28 @@ Roles: **builder** (tech lead), **researcher**, **agent** (an AI doing a graph n
 3. Tell the other team members or the approver. Use the next sync point, or call if you are blocked for more than 15 minutes.
 4. Cut scope before you cut the demo.
 5. Write the problem and the fix in the log, so the next person does not repeat it.
+
+## 8. Skills and tools (any agent, any CLI)
+Skills are plain markdown files at `.claude/skills/<name>/SKILL.md`. The scripts they call live in `tools/` and `morpheus/` and need bash and curl; `tools/check-name.sh` also needs `whois`, and `morpheus/preflight.sh` needs `python3`. Run `bash tools/kit-lint.sh` before you hand the kit on. It checks skill and graph references, node layout and `needs`, output paths, the `Output` and `Done when` headings, and placeholders.
+- **Claude Code** loads the skills on its own as `/<name>`. `CLAUDE.md` imports this file.
+- **Any other agent or CLI** (Codex, Grok, Cursor, Gemini, a local model): when asked to run `/<name>`, read `.claude/skills/<name>/SKILL.md` and follow it step by step. If the agent cannot run subagents, `/run-graph` runs the ready nodes one at a time.
+
+| Skill | Does |
+|---|---|
+| `market-scan` | Scan one space for pain and spend |
+| `pain-map` | Score the pains with evidence |
+| `gtm-wedge` | ICP, wedge, price, first 10 users |
+| `opportunity` | Rate the four risks; GO / PIVOT / STOP |
+| `scaffold` | Generic app scaffold on Morpheus |
+| `poc` | One-flow proof of concept, then a demo-safe MVP |
+| `name` | Name the product; check domains and socials (`tools/check-name.sh`) |
+| `outreach` | Approval-gated leads and drafts |
+| `ship-site` | Live page with honest signup |
+| `ship-retro` | One fact base after shipping |
+| `synopsis` | The story and the close |
+| `design-system` | Brand kit and ad drafts |
+| `deck` | Finals deck from the synopsis and brand kit |
+| `direct-response` | Ad copy, every claim traced |
+| `video-prompt` | AI video prompt pack |
+| `pitch` | 3-minute script and judge Q&A drill |
+| `run-graph` | Run a `graphs/*.yaml` execution graph |

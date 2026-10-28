@@ -1,6 +1,8 @@
-# Runs alongside 2-build once 1-discover/gtm is done.
+# Runs alongside 2-build once 1-discover/gtm is done (research/gtm.md and research/pick.md must exist; cross-graph, so not listed in needs).
 # Start only after research/opportunity.md says GO (graphs/1-discover.yaml).
-- {id: site, owner: agent, skill: /ship-site, needs: [], out: site/, gate: "live URL; form submits on phone viewport; analytics recording", timebox_min: 60}
+- {id: hooks, owner: researcher, skill: manual, needs: [], out: research/hooks.md, gate: "1 lead hook + 2 alternates, each from a sourced quote in research/ and the ICP in research/gtm.md; the approver approves the lead hook", timebox_min: 30, human_gate: true}
+- {id: name, owner: agent, skill: /name, needs: [hooks], out: research/name.md, gate: "research/name.md has the 5-second-test answers and a decision line; no domain bought before the approver's yes", timebox_min: 30, human_gate: true}
+- {id: site, owner: agent, skill: /ship-site, needs: [name], out: [site/, research/gtm.md], gate: "live URL; form submits on phone viewport; analytics recording; URL + target below the title of research/gtm.md; the approver approved before --prod", timebox_min: 60, human_gate: true}
 - {id: leads, owner: agent, skill: /outreach, needs: [], out: research/outreach.md, gate: "ranked leads with source URLs + drafts", timebox_min: 60}
-- {id: send, owner: researcher, skill: manual, needs: [leads, site], out: research/outreach.md, gate: "the approver-approved list + message; sent by a human", timebox_min: 30, human_gate: true}
+- {id: send, owner: researcher, skill: manual, needs: [leads, site], out: research/outreach-approved.md, gate: "the approver-approved list + message; sent by a human", timebox_min: 30, human_gate: true}
 - {id: proof, owner: researcher, skill: manual, needs: [send], out: research/funnel.md, gate: "count of signups / clicks / replies, with timestamps", timebox_min: 15}

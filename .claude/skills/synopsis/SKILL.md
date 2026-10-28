@@ -37,7 +37,7 @@ Room context: who is in the room, what they reward, and the event's theme, from 
 ## Step 4: Pre-empt the hard questions
 The top 5 objections this panel will raise ("is this just a ChatGPT wrapper?", "who pays?", "why you?", "what stops a big company?", "how big is this?"). Give a 2-sentence answer each, backed by evidence. Put the strongest answer **inside** the pitch, before anyone asks.
 
-## Step 5: Output: `research/synopsis.md`
+## Output: `research/synopsis.md`
 ```
 One sentence:
 Villain (+ $/month):
@@ -53,4 +53,7 @@ Top 5 objections + answers:
 30-second hallway version:
 What we will NOT claim:
 ```
-Gate: a person outside the team reads only the one sentence, then says back what the product does and who it is for. If they can't, rewrite the sentence.
+## Done when
+- A person outside the team reads only the one sentence, then says back what the product does and who it is for. If they can't, rewrite the sentence.
+- The close has both an INVEST ask and a REFER ask.
+- The top 5 objections each have a 2-sentence, evidence-backed answer.

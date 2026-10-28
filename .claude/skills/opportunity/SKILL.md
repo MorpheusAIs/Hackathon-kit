@@ -35,4 +35,7 @@ This follows the product-discovery approach in Marty Cagan's *Inspired*. Read `D
 ## Output: `research/opportunity.md`
 The 10 answers, the risk table, the verdict, and one line on what would change the verdict.
 
-Gate: every answer cites `research/` or a URL; all four risks have a rating and evidence; the verdict is GO, PIVOT or STOP.
+## Done when
+- Every answer cites `research/` or a URL.
+- All four risks have a rating and evidence.
+- The verdict is GO, PIVOT or STOP, with one line on what would change it.

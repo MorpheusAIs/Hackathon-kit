@@ -20,4 +20,11 @@ description: Build the finals presentation from research/synopsis.md and the bra
    10. Backup slides: the evidence table, the hook results, the architecture (product → Morpheus gateway or node)
 4. Rules: ≤ 15 words per slide; numbers big; every number has its source in the speaker notes; no stock photos of people pretending to be users.
 5. Export: `npx @marp-team/marp-cli showcase/deck.md --pdf` and `npx @marp-team/marp-cli showcase/deck.md --pptx`. Add `--allow-local-files` only for local images you made yourself.
-6. Gate: the deck plays offline; each slide's speaker note has a timing; total time is under the limit in one timed read-through.
+
+## Output
+`showcase/deck.md`, `showcase/deck.pdf`, `showcase/deck.pptx`.
+
+## Done when
+- The deck plays offline.
+- Each slide's speaker note has a timing and, for every number, its source.
+- Total time is under the pitch time limit in one timed read-through.

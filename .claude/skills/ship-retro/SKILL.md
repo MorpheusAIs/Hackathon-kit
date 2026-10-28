@@ -32,3 +32,8 @@ What failed and what we changed
 Open questions
 ```
 Rules: every line has a source path or URL. No number without its count method. Mark anything unverified as UNVERIFIED.
+
+## Done when
+- Every line has a source path or URL.
+- Traction counts carry the date, time and count method.
+- Anything unverified is marked UNVERIFIED.

@@ -7,7 +7,7 @@ Each event phase is a DAG (directed acyclic graph). Nodes are tasks; edges are d
 | `0-preflight.yaml` | accounts, keys, Morpheus, tooling dry-fire | before build day |
 | `1-discover.yaml` | research → pain map → wedge → opportunity (GO / PIVOT / STOP) | build day, first phase |
 | `2-build.yaml` | scaffold → POC → MVP → freeze → approved production release | build day, middle; starts only after `opportunity` says GO |
-| `3-ship.yaml` | site, demand test, outreach | build day, in parallel with MVP |
+| `3-ship.yaml` | hooks, name, site, demand test, outreach | build day, in parallel with MVP |
 | `5-showcase.yaml` | **post-ship:** retro → synopsis → design → deck + DR ads + video prompt → honesty review → approver sign-off | when the `demo` tag exists |
 | `4-pitch.yaml` | script, drill, rehearsal, final approval (uses the deck) | after 5-showcase, before judging |
 
@@ -19,7 +19,7 @@ Node schema:
   owner: builder | researcher | agent | approver
   skill: /name           # or "manual"
   needs: [ids]           # edges
-  out: path              # artifact
+  out: path or [paths]   # artifact(s); only research/poc.md, research/gtm.md, research/approvals.md and app/ may be shared by two nodes (kit-lint)
   gate: "command or checkable condition"
   timebox_min: int
   human_gate: bool       # stop for approval (anything outward, money, or irreversible)

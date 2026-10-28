@@ -26,4 +26,11 @@ Then:
 - **Riskiest assumption:** the one belief that, if false, kills the pick, and how to test it before judging (5 conversations, a post, a landing-page click test).
 - **Runner-up:** the fallback if the test fails early on build day.
 
+Do not write `research/pick.md`. The `pick` node (every team member) writes and signs it from this file.
+
 Write the pick in the user's words, not ours. If the top two are within 10%, pick the one that is easier to demo.
+
+## Done when
+- Every scored pain has a quote and a source URL.
+- One pick and one runner-up are named, with the riskiest assumption and its test.
+- Every pain passed the theme-fit gate in one sentence.

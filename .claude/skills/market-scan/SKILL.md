@@ -27,7 +27,7 @@ Restate the space as "<buyer> trying to <job>". If the arg is vague, pick the sh
 - **Size:** count of buyers (BLS, Census, trade associations, industry reports) and the typical annual spend per buyer on the workaround.
 - **Community:** where the buyers talk about this pain, how many people, and how recently.
 - **Why now:** what changed recently (cost of AI, a regulation, a platform shift, a price rise by an incumbent).
-- If the `last30days` skill is installed, run it on the space for current chatter.
+- If the `last30days` skill is installed, run it on the space for current chatter. If it is not installed, search Reddit and Hacker News for the space directly (last 30 days) and cite each post URL.
 
 ## Step 2: Quote, don't summarize
 Keep 8–15 verbatim pain quotes, each with its URL, date and the speaker's role. Count independent people, not posts.
@@ -41,7 +41,7 @@ Keep 8–15 verbatim pain quotes, each with its URL, date and the speaker's role
 
 Bottom-up beats top-down: a report's "$40B market" is context, not your TAM. Show the math so a judge can check it.
 
-## Output: `research/scan-<slug>.md`
+## Output: write to the path the graph node gives, else `research/scan-<slug>.md`
 ```
 # Scan: <buyer> trying to <job>
 ## Verdict: SUPPORTED / CONTRADICTED / INSUFFICIENT: one line why (a hypothesis screen, never "validated")
@@ -64,3 +64,9 @@ Bottom-up beats top-down: a report's "$40B market" is context, not your TAM. Sho
 - **Community gate:** if you find no community where buyers discuss this pain in the last 12 months, the verdict cannot be SUPPORTED.
 - **Evidence gate:** no claim without a URL whose page you checked contains the quote.
 - If evidence is thin after 60 minutes, say INSUFFICIENT, list which sources failed or returned nothing, and move on. Thin evidence is not proof that demand is absent.
+
+## Done when
+- At least 8 verbatim pain quotes, each with a URL, date and the speaker's role (unless the verdict is INSUFFICIENT, which says how many were found).
+- A verdict line (SUPPORTED / CONTRADICTED / INSUFFICIENT) with one line of why.
+- TAM / SAM / SOM math, the competitor matrix and the community signal are present, or the verdict is INSUFFICIENT and names the failed sources.
+- The file is at the path the caller gave, else `research/scan-<slug>.md`.

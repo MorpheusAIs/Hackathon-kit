@@ -20,6 +20,11 @@ For each hook (3), give 3 variants:
 | Variant | Awareness level | Headline (≤ 40 chars) | Primary text (≤ 125 chars before "more") | Call to action | Visual (from ad-drafts) | Evidence behind each claim |
 Plus: 3 landing-page headline options, the referral share message, and a 15-second video voiceover script for `/video-prompt`.
 
+## Done when
+- 3 hooks x 3 variants, each with headline and primary text within the length limits.
+- Every claim maps to a line in `research/`.
+- The policy check in the hard rules below passes.
+
 ## Hard rules
 - Every claim maps to a line in `research/`. No invented numbers, users or testimonials.
 - Meta policy: do not assert or imply a person's personal attributes ("Are you struggling with debt?"). No fake urgency or scarcity. No "available now" for a product that isn't.

@@ -5,7 +5,7 @@ description: Write the 3-minute pitch and demo script plus a judge Q&A drill, fr
 
 # Pitch
 
-Read `research/synopsis.md` first if it exists (it holds the story and the close), then `research/pain-map.md`, `research/gtm.md`, `research/funnel.md` and the live site's numbers.
+Read `research/synopsis.md` first if it exists (it holds the story and the close), then `research/pain-map.md`, `research/gtm.md`, `research/name.md`, `research/funnel.md`, the run logs in `research/poc-runs/` and the live site's numbers.
 
 ## Script, 3 minutes (adjust to the pitch time limit in CLAUDE.md)
 1. **0:00–0:20 Hook:** one real quote from a real buyer, then "<N> businesses like this lose <$/time> to it."
@@ -18,4 +18,19 @@ Read `research/synopsis.md` first if it exists (it holds the story and the close
 ## Judge Q&A drill
 Write the 10 hardest questions this room will ask (business model, competition, why you, scale, the moat, "is this just a GPT wrapper"), each with a 2-sentence answer. Then quiz the team: ask each question cold and score each answer.
 
-## Output: `research/pitch.md` (the script with timings, plus the Q&A). Rehearse it out loud 3 times with a timer.
+## Output: `research/pitch.md`
+The script with timings, plus the Q&A. Rehearse it out loud 3 times with a timer.
+```
+# Pitch: <name from research/name.md>
+## Script (timed)
+| Time | Beat | Words |
+## Demo notes (flow, backup recording, "Faked for demo")
+## Judge Q&A (10)
+1. Q: ... / A: (2 sentences)
+## Rehearsal log: kept in `research/pitch-rehearsal.md` by the `rehearse` node
+```
+
+## Done when
+- The timed script fits the pitch time limit at speaking pace (about 130 words a minute). The three human run-throughs happen later, in the `rehearse` node.
+- 10 judge questions each have an answer of two sentences.
+- Every number on stage traces to `research/` or the live site.

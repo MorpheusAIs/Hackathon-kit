@@ -35,7 +35,7 @@ A product is incomplete until you have mapped **product-market fit**, the **pain
 | Feasibility | Can we build it in time, on Morpheus? |
 | Viability | Does it hold up as a business or a sustained effort? |
 
-Read [`DISCOVERY.md`](DISCOVERY.md), then run the skills in order: `/market-scan` → `/pain-map` → `/gtm-wedge` → **`/opportunity`** (GO / PIVOT / STOP) → `/scaffold` → `/poc`.
+Read [`DISCOVERY.md`](DISCOVERY.md), then run the skills in order: `/market-scan` → `/pain-map` → `/gtm-wedge` → **`/opportunity`** (GO / PIVOT / STOP) → `/scaffold` → `/poc`, then `/name` and `/ship-site` before the pitch.
 
 ## Quick start (5 minutes)
 
@@ -57,7 +57,7 @@ Read [`DISCOVERY.md`](DISCOVERY.md), then run the skills in order: `/market-scan
    ```
    Or open the repo in GitHub Codespaces, with `MORPHEUS_API_KEY` set as a Codespaces secret. Everything installs automatically.
 5. Point any OpenAI SDK at `https://api.mor.org/api/v1`.
-6. Optional: run `claude` in this folder. [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) loads the skills in `.claude/skills/` automatically. Fill in the Brief in `CLAUDE.md` first.
+6. Optional: open any agent CLI in this folder (Claude Code, Codex, Grok, Cursor and others). Rules are in `AGENTS.md`, and `CLAUDE.md` imports it. [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) loads the skills in `.claude/skills/` automatically; any other agent runs `/<name>` by reading `.claude/skills/<name>/SKILL.md`. Fill in the Brief in `CLAUDE.md` first.
 
 ### Python
 ```python
@@ -106,9 +106,12 @@ List the live models with `curl -s https://api.mor.org/api/v1/models`. Model IDs
 | File | Purpose |
 |---|---|
 | `DISCOVERY.md` | The four risks, the pain / cost-of-inaction / fit maps, and further reading |
-| `CLAUDE.md` | Agent rules plus a brief to fill in: event, theme, judging, approver |
-| `AGENTS.md` | Practice for people and agents: research, repo, marketing, outreach, safety |
-| `.claude/skills/` | 16 skills for Claude Code (or any agent that reads skill files): discovery → build → ship → pitch |
+| `AGENTS.md` | Canonical rules for people and agents: practice for research, repo, marketing, outreach, safety, and the skill list |
+| `CLAUDE.md` | Imports `AGENTS.md`, plus a brief to fill in: event, theme, judging, approver |
+| `.claude/skills/` | 17 skills for Claude Code (or any agent that reads skill files): discovery → build → name → ship → pitch. `/name` names the product and checks domains and handles |
+| `tools/kit-lint.sh` | Consistency check for skills and graphs (skill↔graph references, node layout and `needs`, output paths, `Output` / `Done when` headings, placeholders). Run it before handing the kit on |
+| `tools/check-name.sh` | Domain and social-handle availability table for name candidates (used by `/name`) |
+| `CHANGELOG.md` | What changed in each kit version |
 | `graphs/` | Execution graphs (DAGs) that chain the skills with gates and approvals. Run with `/run-graph` |
 | `examples/` | Runnable Python and Node examples on Morpheus |
 | `.devcontainer/` | Open the repo in GitHub Codespaces with everything installed |
@@ -119,6 +122,10 @@ List the live models with `curl -s https://api.mor.org/api/v1/models`. Model IDs
 | `morpheus/preflight.sh` | Tests a key, models, latency and tool calls |
 | `morpheus/no-other-vendors.sh` | Pre-commit / CI check that your code calls no other AI vendor directly |
 | `.env.example` | Environment variables the scripts and snippets use |
+
+## Check the kit
+
+Run `bash tools/kit-lint.sh` after editing a skill or a graph. It exits 0 when skills and graphs agree.
 
 ## Good practice
 

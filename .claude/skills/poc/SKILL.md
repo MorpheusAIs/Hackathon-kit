@@ -15,11 +15,27 @@ description: Build the smallest working proof of concept for the picked wedge �
 4. **Gate:** run it on 3 different real inputs. Save the outputs to `research/poc-runs/`. If 2 of 3 are not useful to the buyer, fix the prompt or the flow before adding anything.
 
 ## Stage 2: MVP (target 3 hours)
+The MVP lives in `app/` (the scaffold output); harden it there, do not start a second project.
 - An input form a stranger can use without you explaining it.
 - Errors handled: model timeout → retry once → fall back to the second Morpheus model → show a friendly message.
 - Log every run as metadata only: time, model, endpoint, latency, status. Do not log prompts, outputs or personal data. These logs become the proof slide. For demo screenshots, use sample inputs, not real customer data.
 - Intent: an honest "notify me" signup. Payment is Stripe test mode only, unless the product is real and the approver approves. A signup is interest, not proof of payment.
 - Record a 60-second screen capture of the full flow as the stage backup.
+
+## Output
+`research/poc.md` and `research/poc-runs/`.
+```
+# POC
+## Flow (<=5 steps: input -> agent -> output)
+## Stack and models (primary, fallback)
+## Runs (research/poc-runs/run-1..3: input, output, useful? y/n)
+## Faked for demo
+```
+
+## Done when
+- The flow runs end to end on real inference; 2 of 3 real inputs gave useful output, saved in `research/poc-runs/`.
+- MVP (`mvp` node only): a stranger uses it unaided, the fallback model works, and a run log is written.
+- "Faked for demo" lists every shortcut.
 
 ## Rules
 - Keys stay in `.env` and in server-side code only.

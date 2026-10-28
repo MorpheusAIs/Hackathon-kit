@@ -33,11 +33,12 @@
 ## This kit
 
 - [DISCOVERY.md](DISCOVERY.md): read before building. Map product-market fit, the pain and the cost of inaction, and rate the four product risks (value, usability, feasibility, viability)
-- [CLAUDE.md](CLAUDE.md): agent rules, plus a brief for the team to fill in (event, theme, judging, approver)
-- [AGENTS.md](AGENTS.md): working practice for people and agents
-- [Skills](.claude/skills/): /market-scan → /pain-map → /gtm-wedge → /opportunity (GO / PIVOT / STOP) → /scaffold → /poc → /ship-site → /pitch, plus showcase skills
+- [AGENTS.md](AGENTS.md): canonical rules and working practice for people and any agent, plus the skills and tools table
+- [CLAUDE.md](CLAUDE.md): imports AGENTS.md (Claude Code), plus event rules and a brief for the team to fill in (event, theme, judging, approver)
+- [Skills](.claude/skills/): /market-scan → /pain-map → /gtm-wedge → /opportunity (GO / PIVOT / STOP) → /scaffold → /poc → /name → /ship-site → /pitch, plus showcase skills; `bash tools/kit-lint.sh` checks skills and graphs; `tools/check-name.sh` checks name availability
 - [Graphs](graphs/README.md): DAGs that chain the skills with gates and human approvals. Run with /run-graph
 - [README](README.md): quick start, code snippets, lanes
+- [CHANGELOG.md](CHANGELOG.md): what changed in each version
 - [MORPHEUS.md](MORPHEUS.md): full human-readable index, including the provider paths and known gaps
 - [examples/](examples/): runnable Python and Node examples
 - [Gateway setup](morpheus/SETUP.md): API features and gaps, model choice, routing coding agents

@@ -1,6 +1,6 @@
 ---
 name: gtm-wedge
-description: One-page go-to-market for the picked pain — ICP, wedge, pricing, first 10 users, and the demand test to run before judging. Reads research/pain-map.md, writes research/gtm.md.
+description: One-page go-to-market for the picked pain — ICP, wedge, pricing, first 10 users, and the demand test to run before judging. Reads research/pick.md (and research/pain-map.md for evidence), writes research/gtm.md.
 ---
 
 # GTM wedge
@@ -18,4 +18,23 @@ Order matters: ICP and wedge first, funnel last.
 9. **Evidence test before judging:** the site's honest "notify me" signup, the target number, and how you'll count it. Plus at most one disclosed community question, posted by the approver. Signups are interest, not proof of payment.
 10. **Theme line:** one sentence linking this to the event's theme, from CLAUDE.md.
 
-## Output: `research/gtm.md`, at most one page, using these 10 headings (ICP, Wedge, Alternatives, Cost of inaction, Price, Viability, Network angle, First 10 users, Evidence test, Theme line). Each claim cites `research/` or a URL.
+## Output: `research/gtm.md`
+At most one page, using these 10 headings. Each claim cites `research/` or a URL.
+```
+# GTM: <product, one line>
+## ICP
+## Wedge
+## Alternatives
+## Cost of inaction
+## Price
+## Viability
+## Network angle
+## First 10 users
+## Evidence test
+## Theme line
+```
+
+## Done when
+- All 10 headings are present, in this order.
+- Every claim cites `research/` or a URL.
+- The file is one page; the ICP is one named buyer and the price is justified by the alternative's cost and the cost of inaction.

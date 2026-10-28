@@ -16,3 +16,8 @@ description: Write production-ready prompts for an AI video tool (e.g. Veo, Runw
 7. **Variants:** one version per top hook (change only the first 3 seconds and the end card).
 
 Rules: no real people's faces or voices without consent; no imitation of a celebrity; no fake product footage.
+
+## Done when
+- The shot list has 4–6 shots, each marked AI footage or real recording; the product shot is real.
+- Every AI shot has a prompt, and the voiceover is timed per shot.
+- The AI label, licensed music and the edit plan are present.

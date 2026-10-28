@@ -26,4 +26,12 @@ Name lockup (text is fine), palette with hex codes, fonts, the logo rule, a slid
 ## Step 4: Ad drafts (`showcase/ad-drafts.md`)
 For each of the top 3 hooks: one static concept (layout, headline placeholder, visual, call to action) in 1:1 and 9:16. Rough copy only. **Pass this file to `/direct-response`**, which writes the final copy. Then build the finals in Canva, or as HTML exported to PNG, using the brand kit.
 
+## Output
+`research/design.md` (brand kit) and `showcase/ad-drafts.md` (ad concepts for the top 3 hooks).
+
+## Done when
+- The market look is cited with URLs.
+- The brand kit has hex codes, fonts, a logo rule and 3 do / don't examples.
+- Ad drafts exist for the top 3 hooks in 1:1 and 9:16.
+
 Rules: label any AI-generated image. Use only real product screenshots for the product. No fake testimonials, no fake logos of customers.
