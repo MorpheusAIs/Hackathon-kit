@@ -15,7 +15,7 @@ Generate:
    - Append `{ts, model, latency_ms, ok}` to a run log: `data/runs.jsonl` locally; when deployed, a hosted store or the platform's log stream (serverless file systems are read-only). Metadata only: never log secrets, prompts, outputs or personal data.
 3. `app/api/run/route.ts`: a server-side endpoint calling `llm()`. The key never reaches the browser.
 4. `.env.example` listing the variable names only. Add `.env` and `.vercel/` to `.gitignore` before the first commit.
-5. A pre-commit hook and a CI step running `morpheus/no-other-vendors.sh`, plus gitleaks if installed. If gitleaks is not installed, run `git grep -nIE '(sk-|api[_-]?key|secret|BEGIN [A-Z]+ PRIVATE KEY)'` and confirm no `.env` is tracked.
+5. A pre-commit hook and a CI step running `morpheus/no-other-vendors.sh`, plus gitleaks if installed. If gitleaks is not installed, run `git grep -lIE '(sk-|api[_-]?key|secret|BEGIN [A-Z]+ PRIVATE KEY)'` (file names only, so a matched secret is never printed into agent output), open each listed file yourself, and confirm no `.env` is tracked. This fallback is weaker than gitleaks: it does not scan git history. If a real key was ever committed, rotate it.
 6. A minimal page with an input box and an output box that calls `/api/run`, to prove the pipe works.
 7. `vercel` preview deploy with Vercel deployment protection on (private preview). Print the URL. Add a rate limit, an input-size cap and a daily spend ceiling to `/api/run`.
 

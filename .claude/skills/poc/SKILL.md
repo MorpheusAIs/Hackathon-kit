@@ -12,7 +12,7 @@ description: Build the smallest working proof of concept for the picked wedge â€
    - LLM through an OpenAI-compatible client. All inference goes through Morpheus (`https://api.mor.org/api/v1`, key `MORPHEUS_API_KEY`). The primary and fallback are two different Morpheus models, chosen with `morpheus/preflight.sh`. Route everything through one `llm()` function; `morpheus/no-other-vendors.sh` enforces this. See `morpheus/SETUP.md`.
    - Web or browser actions: plain HTTP plus a search API first. Use browser automation only if the flow can't work without it.
 3. Hard-code everything that isn't the flow (one user, one example input). Make the flow work on a real example, not a mock.
-4. **Gate:** run it on 3 different real inputs. Save the outputs to `research/poc-runs/`. If 2 of 3 are not useful to the buyer, fix the prompt or the flow before adding anything.
+4. **Gate:** run it on 3 different real inputs. Save the outputs to `research/poc-runs/`. Use synthetic or sanitized inputs only: no customer names, contacts or private records in committed runs. If 2 of 3 are not useful to the buyer, fix the prompt or the flow before adding anything.
 
 ## Stage 2: MVP (target 3 hours)
 The MVP lives in `app/` (the scaffold output); harden it there, do not start a second project.

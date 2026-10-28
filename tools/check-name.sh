@@ -8,6 +8,8 @@
 # Checked by machine: domains (RDAP, then whois), GitHub, YouTube, X. "?" = no clear answer
 # (some whois clients, e.g. macOS, return nothing for .app): check that one at the registrar.
 # NOT verifiable by machine (always answer 200/403): Instagram, TikTok -> check the link by hand.
+# "free" = RDAP 404 plus an explicit whois "no match"; any error is "?". For handles, "free" means no
+# public profile was found, not that the handle can be claimed: confirm on the platform.
 # "free" means not registered / no account. A free domain can still be a premium price: check at the registrar.
 
 set -uo pipefail
@@ -21,9 +23,10 @@ domain() { # RDAP first; rdap.org answers 404 for some TLDs it does not serve, s
   local d=$1 c w
   c=$(code "https://rdap.org/domain/$d")
   [ "$c" = 200 ] && { echo "taken"; return; }
-  w=$(whois -- "$d" 2>/dev/null)
+  [ "$c" = 404 ] || { echo "?"; return; }    # RDAP error or timeout: unknown, never free
+  w=$(whois -- "$d" 2>/dev/null) || { echo "?"; return; }
   if printf '%s' "$w" | grep -qiE '^ *Domain Name: *[a-z0-9]'; then echo "taken"
-  elif printf '%s' "$w" | grep -qiE 'not found|no match|does not exist|no data found|available'; then echo "free"
+  elif printf '%s' "$w" | grep -qiE '^ *(no match for|not found|domain not found|no data found|the queried object does not exist)'; then echo "free"
   else echo "?"; fi
 }
 

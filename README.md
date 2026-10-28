@@ -35,7 +35,7 @@ A product is incomplete until you have mapped **product-market fit**, the **pain
 | Feasibility | Can we build it in time, on Morpheus? |
 | Viability | Does it hold up as a business or a sustained effort? |
 
-Read [`DISCOVERY.md`](DISCOVERY.md), then run the skills in order: `/market-scan` → `/pain-map` → `/gtm-wedge` → **`/opportunity`** (GO / PIVOT / STOP) → `/scaffold` → `/poc`, then `/name` and `/ship-site` before the pitch.
+Read [`DISCOVERY.md`](DISCOVERY.md), then run the skills in order: `/market-scan` → `/pain-map` → `/gtm-wedge` → **`/opportunity`** (GO / PIVOT / STOP) → `/scaffold` → `/poc`, then `/name` and `/ship-site` before the pitch. Two steps between them are human, not skills: the signed pick (`research/pick.md`) before `/gtm-wedge`, and the hooks (`research/hooks.md`) before `/name`. The graphs in `graphs/` include both.
 
 ## Quick start (5 minutes)
 

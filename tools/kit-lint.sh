@@ -4,8 +4,9 @@
 # Checks: skill refs, graph coverage, Output/Done-when headings, placeholders, research/ out paths,
 # shared out paths, node layout, duplicate ids, needs that point at no node in the same file.
 cd "$(dirname "$0")/.." || exit 1
-FAILF=$(mktemp); trap 'rm -f "$FAILF"' EXIT   # pipes run in subshells, so failures are counted in a file
-bad() { echo "kit-lint FAIL: $*"; echo x >> "$FAILF"; }
+FAILF=$(mktemp) && [ -w "$FAILF" ] || { echo "kit-lint FAIL: cannot create a temp file" >&2; exit 2; }
+trap 'rm -f "$FAILF"' EXIT   # pipes run in subshells, so failures are counted in a file
+bad() { echo "kit-lint FAIL: $*"; echo x >> "$FAILF" || { echo "kit-lint FAIL: cannot record a failure" >&2; exit 2; }; }
 SK=.claude/skills
 ALLOW_UNREFERENCED=""                 # skills not in any graph
 ALLOW_SHARED_OUT="research/poc.md research/gtm.md research/approvals.md app/"  # revised or logged in place by a later node
@@ -68,5 +69,6 @@ done
 echo "$nodes" | awk -F'|' '$4!="-"{print $4}' | sort | uniq -d | while read -r p; do
   case " $ALLOW_SHARED_OUT " in *" $p "*) ;; *) bad "out path $p is shared by two nodes";; esac
 done
+[ -f "$FAILF" ] || { echo "kit-lint FAIL: temp file disappeared" >&2; exit 2; }
 [ -s "$FAILF" ] && exit 1
 echo "kit-lint: OK"
